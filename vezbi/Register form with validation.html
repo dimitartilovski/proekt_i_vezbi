@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Basic Class 8 - Forms</title>
+  </head>
+  <style>
+    input,
+    button {
+      display: block;
+      margin: 10px;
+    }
+    input[type="radio"]{
+      display: inline;
+    }
+    form {
+      background-color: aquamarine;
+      padding: 10px;
+    }
+    input[type="checkbox"]{
+      display: inline;
+    }
+  </style>
+  <body>
+    <form name="register-form" onsubmit="submitRegisterForm(event)">
+      <!-- Text, email and password inputs-->
+      <input type="text" placeholder="Username" name="username" />
+      <input type="password" placeholder="Password" name="password" />
+      <input type="email" placeholder="E-mail" name="email" />
+
+      <!--Radio buttons-->
+      <input type="radio" name="gender" id="male-id" value="male" checked> 
+      <label for="male-id">Male</label>
+      <input type="radio" name="gender" id="female-id" value="female">
+      <label for="female-id">Female</label>
+
+      <br>
+      <!--Checkboxes-->
+      <label for="">Learnt so far:</label> <br>
+      <input type="checkbox" name="html" id="html" value="html"><label for="html" id="html">HTML</label>
+      <input type="checkbox" name="css" id="css" value="css"><label for="css" id="css">CSS</label>
+      <input type="checkbox" name="js" id="js" value="js"><label for="js" id="js">JS</label>
+      <input type="checkbox" name="c#" id="c#" value="c#"><label for="c#" id="c#">C#</label>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Clear</button>
+    </form>
+
+    <script>
+      //1. Finding all the forms in the document.
+      console.log(document.forms[0]);
+      console.log(document.forms["register-form"]); //recommended
+
+      //2. Finding inputs in form by name
+      var form = document.forms["register-form"];
+      console.log(form["username"]); //recommended
+      console.log(form.username);
+
+      //3.Events passing and onsubmit event
+      function submitRegisterForm(event) {
+        event.preventDefault();
+        //getting the form from the event
+        var form = event.target;
+
+        var username = form["username"].value;
+        var password = form["password"].value;
+        var email = form["email"].value;
+        var gender = form["gender"].value;
+
+        //Getting witch checkbox is checked
+        var checkedInputs = [];
+        var formCheckboxes = form.querySelectorall("input[type='checked'])
+        
+        // var isHtmlChecked = form["html"].checked; //this will return true or false
+        // if (isHtmlChecked) {
+        //   checkedInputs.push(form["html"].values)
+        // }
+        //After you take the values from the inputs you need to continue by
+        //sending it to the server 
+        console.log(username, email, password, gender);
+      }
+      
+        var isHtmlChecked = form["html"].checked; //this will return true or false
+        if (isHtmlChecked) {
+          checkedInputs.push(form["html"].values)
+        }
+      }
+    </script>
+  </body>
+</html>

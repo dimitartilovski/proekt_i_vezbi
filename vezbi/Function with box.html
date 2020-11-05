@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Function with box</title>
+    <style>
+        #box{
+            height: 150px;
+            width: 150px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body onkeydown='getKeyAndMove(event)'>
+    <div id="box"></div>
+    
+    <script>
+       var box;
+			function init(){
+				box=document.getElementById("box");				
+				box.style.position='relative';
+				box.style.left='20px';
+				box.style.top='20px';
+			}
+			function getKeyAndMove(e){				
+				var key_code=e.which||e.keyCode;
+				switch(key_code){
+					case 37: //left arrow key
+						moveLeft();
+						break;
+					case 38: //Up arrow key
+						moveUp();
+						break;
+					case 39: //right arrow key
+						moveRight();
+						break;
+					case 40: //down arrow key
+						moveDown();
+						break;						
+				}
+			}
+			function moveLeft(){
+				box.style.left=parseInt(box.style.left)-3 +'px';
+			}
+			function moveUp(){
+				box.style.top=parseInt(box.style.top)-3 +'px';
+			}
+			function moveRight(){
+				box.style.left=parseInt(box.style.left)+3 +'px';
+			}
+			function moveDown(){
+				box.style.top=parseInt(box.style.top)+3 +'px';
+			}
+			window.onload=init;
+    </script>
+</body>
+</html>

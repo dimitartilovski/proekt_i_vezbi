@@ -1,0 +1,160 @@
+body {
+  background-image: url(../images/background-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+  
+}
+
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(../fonts/Inconsolata-Bold.ttf);
+}
+
+* {
+  font-family: myFirstFont;
+}
+.btn {
+  background-color:rgb(12, 75, 134)
+}
+
+#main-back {
+  background: rgba(0, 0, 0, 0.65);
+    position: relative;
+    z-index: 2;
+    width: 980px;
+    margin:  auto;
+    color: white;  
+      
+}
+
+
+
+.horisontal-line {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white
+}
+
+
+/* social buttons in footer */
+
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+.social-network a.icoRss:hover {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 40px;
+	height: 40px;
+	font-size:20px;
+	background-color: rgb(12, 75, 134);
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+
+/* Here start registration from CSS */
+#main-back-registration {
+	background: rgba(0, 0, 0, 0.65);
+    position: relative;
+    z-index: 2;
+		width: 650px;
+		height: 800px;
+    margin:  auto;
+    color: white; 
+}
+
+#main-back-login {
+	background: rgba(0, 0, 0, 0.65);
+    position: relative;
+    z-index: 2;
+		width: 650px;
+		height: 800px;
+    margin:  auto;
+    color: white; 
+}
+
+button[type="submit"] {
+	width: 100%;
+	background-color: rgb(12, 75, 134)
+}
+
+
+/* ---------------------------------------- */
+
+@media (max-width:640px) {
+  #main-back{
+			width: 100%;
+			
+	}  
+	#main-back-registration {
+		width: 100%;
+	}
+	#main-back-login{
+		width: 100%;
+	}
+}

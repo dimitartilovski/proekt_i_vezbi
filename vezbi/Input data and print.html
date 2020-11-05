@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Input data and print</title>
+</head>
+
+<body>
+
+    <label for="">First name:</label><input id="fn"> <br><br>
+    <label for="">Last name:</label><input id="ln"> <br><br>
+    <label for="">Email:</label><input id="em"> <br><br>
+    <button onclick="save()" id="btn"> Save </button>
+    <button onclick="discard()"> Discard </button>
+
+    <h1>Contacts</h1>
+
+    <table>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Actions</th>
+        <tbody id="tbody"></tbody>
+    </table>
+
+
+    <script>
+        var idNum = 1;
+        function save() {
+            var firstName = document.getElementById("fn").value
+            var lastName = document.getElementById("ln").value
+            var eMail = document.getElementById("em").value
+
+            var idTd = document.createElement("td");
+            var firstNameTd = document.createElement("td");
+            var lastNameTd = document.createElement("td");
+            var eMailTd = document.createElement("td");
+            var actionsTd = document.createElement("td");
+
+            idTd.innerHTML = idNum;
+            firstNameTd.innerHTML = firstName;
+            lastNameTd.innerHTML = lastName;
+            eMailTd.innerHTML = eMail;
+
+
+            var row = document.createElement("tr");
+
+            row.appendChild(idTd);
+            row.appendChild(firstNameTd);
+            row.appendChild(lastNameTd);
+            row.appendChild(eMailTd);
+            row.appendChild(actionsTd);
+
+            document.getElementById("tbody").appendChild(row);
+
+            idNum = idNum + 1;
+
+            var btnEdit = document.createElement("button");
+            var btnDel = document.createElement("button");
+            btnEdit.innerHTML = "edit";
+            btnDel.innerHTML = "delete";
+            btnEdit.style.display = "block";
+            btnDel.style.display = "block";
+
+            var btnSave = document.createElement("button");
+            btnSave.innerHTML = "Save";
+            btnSave.style.display = "none";
+
+
+
+            actionsTd.appendChild(btnEdit);
+            actionsTd.appendChild(btnDel);
+            actionsTd.appendChild(btnSave);
+
+            btnDel.addEventListener("click", function () {
+                row.remove();
+            });
+
+            btnEdit.addEventListener("click", function () {
+                btnEdit.style.display = "none";
+                btnDel.style.display = "none";
+                btnSave.style.display = "block";
+                firstNameTd.innerHTML = "";
+                lastNameTd.innerHTML = "";
+                eMailTd.innerHTML = "";
+                var firstNameInput = document.createElement("input");
+                var lastNameInput = document.createElement("input");
+                var emailNameInput = document.createElement("input");
+
+                firstNameInput.value = firstName;
+                lastNameInput.value = lastName;
+                emailNameInput.value = eMail;
+
+                firstNameTd.appendChild(firstNameInput);
+                lastNameTd.appendChild(lastNameInput);
+                eMailTd.appendChild(emailNameInput);
+
+
+                btnSave.addEventListener("click", function () {
+                    firstNameTd.innerHTML = firstNameInput.value
+                    lastNameTd.innerHTML = lastNameInput.value
+                    eMailTd.innerHTML = emailNameInput.value
+                });
+            });
+
+        }
+
+        function discard() {
+            document.getElementById("fn").value = "";
+            document.getElementById("ln").value = "";
+            document.getElementById("em").value = "";
+        }
+    </script>
+</body>
+
+</html>
